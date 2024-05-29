@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex justify-center mb-5">
+    <div class="w-full max-w-4xl">
+        <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Howdy, Everyone!!! &#128075;
+        </h3>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flex justify-center">
+        <div class="w-full max-w-5xl">
+            <div class="grid grid-cols-2 gap-2">
+                <div>
+                    <div
+                        class="w-full max-w-4xl bg-white shadow-md rounded-xl overflow-hidden p-6 outline outline-1 outline-gray-400">
+                        <h6 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"> Bubble Sort
+                            Simulation</h6>
+
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                            Algoritma bubble sort adalah salah satu algoritma pengurutan data yang paling sederhana.
+                            Cara
+                            kerjanya dengan berulang kali membandingkan elemen yang berdekatan dalam suatu list.
+                        </p>
+
+                        <form method="POST" action="/">
+                            <label for="array" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Masukkan Angka (Pisahkan dengan Koma (",")) :
+                            </label>
+                            <input type="text" id="array" name="array"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-6"
+                                required>
+                            <button type="submit"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl shadow-md text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                Sort With Bubble
+                            </button>
+                        </form>
+
+
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="w-full max-w-4xl bg-white shadow-md rounded-xl overflow-hidden p-6 outline outline-1 outline-gray-400">
+                        <div id="result">
+                            <h2 class="font-bold">Angka Inputan:</h2>
+                            <p class="mb-5">{{ init }}</p>
+
+                            <h2 class="font-bold">Sorting Steps:</h2>
+                            <ul id="steps">
+                                {% if steps %}
+                                {% for step in steps %}
+                                <li>
+                                    <strong>Step {{ loop.index }}:</strong> Tukar {{ step.swap[0] }} and {{
+                                    step.swap[1] }} ->
+                                    Hasil = {{ step.array | join(', ') }}
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
