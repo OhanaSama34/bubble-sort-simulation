@@ -9,6 +9,7 @@ def about():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    init= None
     steps = None
     if request.method == 'POST':
         array_str = request.form.get('array')
